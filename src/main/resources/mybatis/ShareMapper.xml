@@ -15,6 +15,6 @@
         <result property="shareType" column="share_type"/>
     </resultMap>
     <select id="selectById" resultMap="result">
-        select * from gh_share_record where id=#{id}
+        select * from base_share_record where id=#{id}
     </select>
 </mapper>

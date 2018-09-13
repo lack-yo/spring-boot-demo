@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lou.dao.WxUserDao">
+
+    <resultMap type="com.lou.model.WxUserDO" id="result">
+        <result property="id" column="id"/>
+        <result property="openId" column="open_id"/>
+        <result property="appId" column="app_id"/>
+        <result property="unionId" column="union_id"/>
+        <result property="headImgUrl" column="head_img_url"/>
+        <result property="nickname" column="nickname"/>
+        <result property="province" column="province"/>
+        <result property="city" column="city"/>
+        <result property="sex" column="sex"/>
+        <result property="language" column="language"/>
+    </resultMap>
+    <sql id="table">wx_user_data</sql>
+    <insert id="insert">
+        INSERT INTO
+        <include refid="table"/>
+        (open_id,app_id,union_id,nickname,head_img_url,province,city,country,sex,language,date_create)
+        VALUES
+        (#{openId},#{appId},#{unionId},#{nickname},#{headImgUrl},#{province},#{city},#{country},#{sex},#{language},now())
+    </insert>
+    <select id="selectById" resultMap="result">
+        select * from
+        <include refid="table"/>
+        where open_id=#{openId}
+    </select>
+
+</mapper>
