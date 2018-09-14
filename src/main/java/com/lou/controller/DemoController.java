@@ -1,5 +1,6 @@
 package com.lou.controller;
 
+import com.lou.exception.WebException;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.boot.CommandLineRunner;
@@ -21,6 +22,16 @@ public class DemoController {
     @GetMapping("/api/demo")
     public String demo() {
         return "Hello demo";
+    }
+
+    @GetMapping("/api/test/webException")
+    public void testWeb() throws WebException {
+        throw new WebException("测试错误");
+    }
+
+    @GetMapping("/api/test/exception")
+    public void testException() throws Exception {
+        throw new Exception("测试错误");
     }
 
     @Bean
