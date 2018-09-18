@@ -5,3 +5,5 @@
 + web配置，用外部tomcat部署，禁止使用内嵌tomcat
 + 模板引擎thymeleaf
 + API文档输出，集成swagger
++ eureka，zuul
++ config
